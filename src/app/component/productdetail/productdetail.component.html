@@ -1,0 +1,47 @@
+<div *ngIf='product'>
+  <div class="container">
+  <div class="row">
+      <div  class="card">
+        <div class="card-image">
+        <img src="{{product.img}}">
+        </div>
+        <div class="card-content">
+          <div class="card-title">
+            <span>{{product.title}}</span>
+            <div class="row-content">
+              <span class="price">{{product.price | currency}}</span>
+              <app-product-rate [rating]='product.rate'></app-product-rate>
+            </div>
+          </div>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action right-align">
+          <a routerLink='/cart' class="red waves-effect waves-light btn">Add to cart</a>
+          <a class="red waves-effect waves-light btn" (click)='goBack()'>go back</a>
+          <a class="red waves-effect waves-light btn" routerLink='/edit-product/{{product.id}}'>Edit</a>
+          <a class="red waves-effect waves-light btn" (click)='onDelete()'>Delete</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+          <ul class="tabs" materialize='tabs'>
+            <li class="tab col s4">
+              <a href="#decription" class="active" >Description</a>
+            </li>
+            <li class="tab col s4">
+              <a href="#specifications">Specifications</a>
+            </li>
+            <li class="tab col s4">
+              <a href="#reviews">Reviews</a>
+            </li>
+          </ul>
+        </div>
+        <div id="decription" class="col s12">Test 1</div>
+        <div id="specifications" class="col s12">Test 2</div>
+        <div id="reviews" class="col s12">Test 3</div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

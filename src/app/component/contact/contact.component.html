@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <h5>BikeShop contact form</h5>
+  </div>
+  <div class="row">
+    <div class="col s4 center-align">
+      <div class="block center-align">
+        <i class="material-icons small centrate">phone</i>
+      </div>
+      <span>+3805054555456</span>
+    </div>
+    <div class="col s4 center-align">
+      <div class="block">
+        <i class="material-icons small centrate">email</i>
+      </div>
+        <span>velo.bike@coolbike.com</span>
+    </div>
+    <div class="col s4 center-align">
+      <div class="block">
+        <i class="material-icons small centrate">home</i>
+      </div>
+        <span>Odessa region, Izmail, Syvorova str., 134</span>
+    </div>
+  </div>
+</div>
+  <div class="row map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.5875098650026!2d28.835216820871068!3d45.34049519789137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b76606894dd607%3A0x97feb877ad7ffc3!2z0J_QsNC80Y_RgtC90LjQuiDQodGD0LLQvtGA0L7QstGD!5e0!3m2!1sru!2sua!4v1531646850626"
+    allowfullscreen></iframe>
+  </div>
+<div class="container">
+  <form [formGroup]='contactForm' (ngSubmit)='onSubmit()' novalidate>
+    <div class="row">
+      <h6>Contact us for custom quote</h6>
+    </div>
+    <div class="row" formGroupName='name'>
+      <div class="input-field col s4">
+        <input type="text" formControlName='fname'>
+        <label for="fname">First name</label>
+        <div *ngIf="contactForm.controls['name'].controls['fname'].errors && (contactForm.controls['name'].controls['fname'].touched || contactForm.controls['name'].controls['fname'].dirty)" class="error-msg">
+            <div [hidden]="!contactForm.controls['name'].controls['fname'].errors.required" class="error">Field is required</div>
+        </div>
+      </div>
+      <div class="input-field col s4">
+        <input type="text" formControlName='sname'>
+        <label for="sname"> Second Name</label>
+        <div *ngIf="contactForm.controls['name'].controls['sname'].errors && (contactForm.controls['name'].controls['sname'].touched || contactForm.controls['name'].controls['sname'].dirty)" class="error-msg">
+            <div [hidden]="!contactForm.controls['name'].controls['sname'].errors.required" class="error">Field is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+          <input id="phone" type="text" formControlName='phone'>
+          <label for="phone"  class="active">Phone</label>
+          <div *ngIf="contactForm.controls['phone'].errors && (contactForm.get('phone').touched || contactForm.get('phone').dirty)" class="error-msg">
+              <div [hidden]="!contactForm.controls['phone'].errors.required" class="error">Phone is required</div>
+              <div [hidden]="!contactForm.controls['phone'].errors.pattern || !contactForm.controls['phone'].errors.minlength" class="error">Phone are not valid </div>
+          </div>
+    </div>
+      <div class="input-field col s4">
+        <input type="text" id='email' formControlName='email'>
+        <label for="email">Email</label>
+        <div *ngIf="contactForm.controls['email'].errors && (contactForm.get('email').touched || contactForm.get('email').dirty)" class="error-msg">
+            <div [hidden]="!contactForm.controls['email'].errors.required" class="error">Email is required</div>
+            <div [hidden]="!contactForm.controls['email'].errors.email" class="error">Email are not valid</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="input-field col s8">
+          <textarea id="textarea1" class="materialize-textarea" formControlName='text'></textarea>
+          <label for="textarea1">Textarea </label>
+          <div *ngIf="(contactForm.controls['text'].errors != null) && (contactForm.controls['text'].errors != required)">
+            <small class='counter' *ngIf="contactForm.controls['text'].errors.minlength">{{contactForm.controls['text'].errors.minlength.actualLength}}/{{contactForm.controls['text'].errors.minlength.requiredLength}}</small>
+          </div>
+          <div *ngIf="contactForm.controls['text'].errors && (contactForm.get('text').touched || contactForm.get('text').dirty)" class="error-msg">
+              <div [hidden]="!contactForm.controls['text'].errors.required" class="error">Please enter you quote</div>
+          </div>
+    </div>
+    <div class="row center-align">
+      <button type="submit" class="btn waves-effect waves-light red">Send</button>
+    </div>
+  </form>
+</div>

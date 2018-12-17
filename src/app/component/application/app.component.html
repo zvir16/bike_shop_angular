@@ -1,0 +1,43 @@
+<!-- Navbar goes here -->
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a routerLink='/setup'>Add product</a></li>
+  <li><a href="">//in develop//</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink='/' class="brand-logo left">BikE Shop</a>
+    <ul id="nav-mobile" class="right">
+      <li>
+        <a routerLink='/'>
+          <i class="material-icons left">view_module</i>
+          Main
+        </a>
+      </li>
+      <li>
+        <a routerLink='/contact'>
+          <i class="material-icons left">mail_outline</i>
+          Contact
+        </a>
+      </li>
+      <li>
+        <a routerLink='/cart'>
+          <i class="material-icons left">shopping_cart</i>
+          Cart
+        </a>
+      </li>
+
+      <li>
+        <a class="dropdown-trigger" materialize='dropdown' data-activates="dropdown1">
+          <i class="material-icons left">build</i>
+          Setup
+          <i class="material-icons right">arrow_drop_down</i>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+  <!-- Page Layout here -->
+<router-outlet></router-outlet>

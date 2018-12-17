@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col s12">
+      <h5>
+        Add product page
+      </h5>
+    </div>
+    <div class="col s6">
+      <form [formGroup]='productForm' (ngSubmit)='addProduct()' novalidate>
+        <div class="input-field">
+          <input id='title' type="text" formControlName='title'>
+          <label for="title">Bike name</label>
+        </div>
+        <div class="input-field">
+          <input id='price' type="text" formControlName='price'>
+          <label for="price">Price</label>
+        </div>
+        <div class="file-field input-field">
+          <div class="btn red">
+            <span>img</span>
+            <input type="file" accept='image/*' (change)='selectImg($event)'>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+
+        <div class="input-field col s12">
+          <select materialize='material_select' formControlName='category'>
+            <option disabled selected>Choose category</option>
+            <option *ngFor='let c of category' [value]="c">{{c}}</option>
+          </select>
+        </div>
+
+      <button class="btn waves-effect waves-light red" type="submit" name="action">Submit
+       <i class="material-icons right">send</i>
+     </button>
+
+      </form>
+    </div>
+    <div class="col s6">
+      <img [src]='imgPreview' alt="you product image" style='max-height: 380px;'>
+    </div>
+  </div>
+
+</div>

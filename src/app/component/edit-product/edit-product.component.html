@@ -1,0 +1,49 @@
+<div *ngIf='product'>
+  <div class="container">
+
+    <div class="row">
+      <div class="col s12">
+        <h5>
+          Edit product page
+        </h5>
+      </div>
+
+      <div class="col s12">
+        <form [formGroup]='editForm' (ngSubmit)='editProduct()' novalidate>
+          <div class="input-field">
+            <input id='title' type="text" formControlName='title'>
+            <label for="title" class="active">Bike name</label>
+          </div>
+          <div class="input-field">
+            <input id='price' type="text" formControlName='price'>
+            <label for="price" class="active">Price</label>
+          </div>
+          <div class="input-field">
+            <input id='price' type="text" formControlName='rate'>
+            <label for="price" class="active">Rate</label>
+          </div>
+
+          <div class="input-field col s12">
+            <select materialize='material_select' formControlName='category'>
+              <option disabled selected>Choose category</option>
+              <option *ngFor='let c of category' [value]="c">{{c}}</option>
+            </select>
+          </div>
+          <div class="right-align">
+            <button class="btn waves-effect waves-light red" type='reset' (click)='goHome()'>go Home</button>
+
+            <button class="btn waves-effect waves-light red" type="submit" name="action">Submit
+             <i class="material-icons right">send</i>
+           </button>
+          </div>
+
+
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
